@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Monoton&family=Orbitron&family=Play&family=Press+Start+2P&family=Rubik+Mono+One&display=swap");
+/* font-family: 'Audiowide', cursive;
+font-family: 'Monoton', cursive;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Play', sans-serif;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Rubik Mono One', sans-serif; */
+#app{
+    grid-template-rows:repeat(5,1fr);
+    grid-template-columns: repeat(7,1fr);
+    gap: 1rem;
+}
+.app_heading {
+    position: absolute;
+}
+.app_heading a{
+    text-decoration: none;
+}
+.app_heading .heading::before{
+    border:none;
+}
+.preloader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#app > .box{
+    width: 100%;
+    /* border: 2px solid red; */
+    overflow: hidden;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.box img{
+    height: 70%;
+}
+.title{
+    color: rgb(221, 221, 221);
+    font-family: 'Play', sans-serif;
+    font-size: 1rem;
+    margin-left: 5px;
+}
+.flag{
+    grid-row: 1/4;
+    grid-column: 5/-1;
+    /* border: 2px solid red; */
+}
+.main_details{
+    border: 2px solid red;
+    grid-row: 1/-1;
+    grid-column: 1/4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.map{
+    grid-row: 5/-1;
+    grid-column: 6/7;
+}
+.flag img{
+    animation: zoom 1s linear infinite alternate;
+    opacity: .8;
+}
+@keyframes zoom {
+    100%{
+        transform: scale(1.05);
+    }
+}
+.coat_arms{
+    grid-row: 5/-1;
+    grid-column: 7/-1;
+}
+.time{
+    grid-row: 2/3;
+    grid-column: 4/5;
+    border: 2px solid red;
+}
+.time .title{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+}
+.time .live_time{
+    color: white;
+    text-align: center;
+    font-family: 'Audiowide', cursive;
+    text-shadow: 4px 4px 5px rgba(255, 0, 0, 0.719);
+    letter-spacing: 4px;
+    transition: .3s;
+}
+
+.content{
+    width: 87%;
+    height: 95%;
+    border: 2px solid rgba(255, 0, 0, 0.849);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.content .info{
+    border: 1px solid rgba(255, 0, 0, 0.822);
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.473) 30%,rgba(0, 0, 0, 0.507) 30%);
+    display: flex;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    font-size: .8rem;
+    transition: .3s;
+}
+.info label{
+    flex: 30%;
+    color: rgb(201, 201, 201);
+    padding:5px;
+}
+.info .value{
+    flex: 70%;
+    color: rgb(201, 201, 201);
+    padding:5px;
+}
+.info:hover{
+    transform:scale(1.08);
+}
+
