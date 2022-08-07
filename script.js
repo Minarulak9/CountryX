@@ -27,6 +27,7 @@ const render = (countries) => {
     a.name.common > b.name.common ? 1 : b.name.common > a.name.common ? -1 : 0
   );
   let allElm = "";
+  container.innerHTML = "";
   countries.forEach((data) => {
     const html = `<a href="./coutnry.html?name=${data.name.common}" class="box">
     <div class="top_design"></div>
@@ -60,13 +61,13 @@ const getCourntryByname = (name) => {
     .then((data) => {
       console.log(data);
       if (data.status == 404) {
-        alert("no country found")
+        alert("no country found");
         searchBar.value = "";
         getAll();
         return;
       }
       click.play();
-      render(data)
+      render(data);
     })
     .catch((err) => {
       alert(err.message);
@@ -87,7 +88,13 @@ getAll();
 
 searchBtn.addEventListener("click", () => {
   let value = searchBar.value;
-  container.innerHTML = "";
-  preloader.classList.remove("hide");
-  getCourntryByname(value);
+  if (value.trim() == "") {
+    container.innerHTML = "";
+    preloader.classList.remove("hide");
+    getAll();
+  } else {
+    container.innerHTML = "";
+    preloader.classList.remove("hide");
+    getCourntryByname(value);
+  }
 });
