@@ -1,0 +1,46 @@
+@media only screen and (max-width: 750px) {
+  body {
+    padding: 0;
+  }
+  #app {
+    padding: 0.5rem;
+  }
+  .search_container .search {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  #app {
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  .flag {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+  .time {
+    grid-row: 1/2;
+    grid-column: 2/3;
+  }
+  .map {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+  .coat_arms {
+    grid-row: 2/3;
+    grid-column: 2/3;
+  }
+  .main_details {
+    grid-row: 3/-1;
+    grid-column: 1/-1;
+    border: none;
+  }
+  .app_heading .heading{
+    z-index: -1;
+  }
+  .main_details .content{
+    width: 100%;
+    
+  }
+}
