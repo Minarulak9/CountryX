@@ -5,6 +5,12 @@ const time = document.querySelector(".time .live_time");
 const altSpeling = document.querySelector(".alt_speling .value");
 const area = document.querySelector(".area .value");
 const borders = document.querySelector(".borders .value");
+const capital = document.querySelector(".capital .value");
+const continent = document.querySelector(".continent .value");
+const population = document.querySelector(".population .value");
+const independent = document.querySelector(".independent .value");
+const lang = document.querySelector(".lang .value");
+const car = document.querySelector(".car .value");
 const container = document.querySelector(".content")
 const preloader = document.querySelector(".preloader");
 
@@ -18,7 +24,7 @@ const render = ([country]) => {
   flag.querySelector("img").src = country?.flags?.png;
   flag.querySelector(".title").textContent ="flag of "+ country?.name.common;
   coatOfArms.querySelector("img").src = country?.coatOfArms?.png;
-  mapLink.href = country.maps?.openStreetMaps;
+  mapLink.href = country.maps?.googleMaps || country.maps?.openStreetMaps;
   let offset = country.timezones[0].replace('UTC','').replace(':','.');
   offset = +offset
   if(offset>+(offset.toFixed())){
@@ -35,6 +41,17 @@ const render = ([country]) => {
   altSpeling.innerHTML = country.altSpellings.join(", ")
   area.innerHTML = country?.area + " KM<sup>2</sup>";
   borders.innerHTML = country?.borders?.join(", ") == undefined?"":country?.borders?.join(", ");
+  capital.textContent = country?.capital?.join(", ") == undefined?"":country?.capital?.join(", ");
+  continent.textContent = country?.continents?.join(", ") == undefined?"":country?.continents?.join(", ");
+  car.textContent = country.car.side  || "";
+  population.textContent = country.population  || "";
+  independent.textContent = country.independent == true ? "Yes" : "No";
+  let languages = '';
+  for (const key in country?.languages) {
+      const element = country?.languages[key];
+      languages += element + ', ';
+  }
+  lang.textContent = languages;
 
   preloader.classList.add("hide");
   intro.play();
